@@ -24,7 +24,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <button onClick={toggleTheme}>Change theme</button>
+      <button onClick={toggleTheme}>Cambiar color</button>
     </nav>
   )
 }

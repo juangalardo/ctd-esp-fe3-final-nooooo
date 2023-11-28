@@ -11,7 +11,7 @@ useEffect(() => {
 
   return (
     <main className={`home ${theme}`}> 
-      <h1>Home</h1>
+      <h1>Bienvenido!</h1>
       <div className='card-grid'>
       {apiData.map(({ id, name, username }) => (
           <Card key={id} id={id} name={name} username={username} />

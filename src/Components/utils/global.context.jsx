@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer, useMemo, useContext } from "react";
 
-export const initialState = {theme: "claro", data: []}
+export const initialState = {theme: "ligth", data: []}
 
 export const ContextGlobal = createContext(undefined);
 
@@ -23,7 +23,7 @@ const reducer = (state, action) => {
     case toggleTheme:
       return {
         ...state,
-        theme: state.theme === "claro" ? "oscuro" : "claro"
+        theme: state.theme === "light" ? "dark" : "light"
       };
     default:
       return state;

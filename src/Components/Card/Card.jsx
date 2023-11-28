@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import imagenDr from '../asserts/doctor.jpg';
+import imagenDr from '../assets/doctor.jpg';
 import './card.css';
 
 const Card = ({ name, username, id }) => {
@@ -32,7 +32,7 @@ const Card = ({ name, username, id }) => {
         <p>{id}</p>
       </Link>
 
-        <button onClick={addFav} className="favButton">Add fav</button>
+        <button onClick={addFav} className="favButton">Agregar a favoritos</button>
     </div>
   );
 };
