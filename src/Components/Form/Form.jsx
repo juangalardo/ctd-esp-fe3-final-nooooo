@@ -21,16 +21,14 @@ const Form = () => {
     <div className='login-container'>
       <form onSubmit={handleSubmit}>
         <div className='login-header'>
-        <div>Quieres saber más?</div></div>
-        <p>Envianos tus preguntas y un especialista se estará comunicando contigo</p>
+          <h1>Formulario de contacto</h1>
+        </div>
         <label>
-          Nombre completo:
-          <input type="text" className='login-input' value={nombre} onChange={(e) => setNombre(e.target.value)} />
+          <input type="text" className='login-input' placeholder='Nombre completo' value={nombre} onChange={(e) => setNombre(e.target.value)} />
         </label>
         <br />
         <label>
-          Email:
-          <input type="email" className='login-input' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="email" className='login-input' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
         <br />
         {error && <p>{error}</p>}

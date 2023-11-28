@@ -1,6 +1,6 @@
 import React from 'react'
 import dhlogo from '../assets/DH.png'
-import './footer.css'
+import '../../index.css'
 
 const Footer = () => {
   return (
