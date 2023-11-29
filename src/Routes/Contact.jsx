@@ -1,10 +1,10 @@
 import React from 'react'
 import Form from '../Components/Form/Form'
-import { useContextGlobal } from '../Components/utils/global.context'
+import { useCharStates, useContextGlobal } from '../Components/utils/global.context'
 
 
 const Contact = () => {
-  const { theme } = useContextGlobal();
+  const { theme } = useCharStates();
 
 return (
     <div className={theme}>

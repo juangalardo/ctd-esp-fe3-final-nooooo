@@ -1,62 +1,33 @@
+import axios from "axios";
 import { createContext, useEffect, useReducer, useMemo, useContext } from "react";
+import { reducer } from "../../Reducers/reducer";
 
-export const initialState = {theme: "ligth", data: []}
+const CharStates = createContext();
 
-export const ContextGlobal = createContext(undefined);
-
-const setTheme = "setTheme";
-const setDataApi = "setDataApi";
-const toggleTheme = "toggleTheme";
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case setTheme:
-      return {
-        ...state,
-        theme: action.payload
-      };
-    case setDataApi:
-      return {
-        ...state,
-        data: action.payload
-      };
-    case toggleTheme:
-      return {
-        ...state,
-        theme: state.theme === "light" ? "dark" : "light"
-      };
-    default:
-      return state;
-  }
+const initialState = {
+  list: [],
+  favs: [],
+  // theme: "light",
 }
-export const ContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+const Context = ({ children }) => {
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+  console.log(state)
+  const url = 'https://jsonplaceholder.typicode.com/users/';
 
   useEffect(() => {
-    
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
-        const data = await response.json();
-        dispatch({ type: setDataApi, payload: data });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const contextValue = useMemo (() => ({
-    theme: state.theme,
-    data: state.data,
-    toggleTheme: () => dispatch({ type: toggleTheme }),
-  }), [state.data, state.theme]);
+    axios(url)
+    .then(res => dispatch({type: 'GET_CHARACTERS', payload: res.data.results}))
+  }, [])
 
   return (
-    <ContextGlobal.Provider value={ contextValue }>
+    <CharStates.Provider value={{state, dispatch}}>
       {children}
-    </ContextGlobal.Provider>
-  );
-};
+    </CharStates.Provider>
+  )
+}
 
-export const useContextGlobal = () => useContext(ContextGlobal)
+export default Context
+
+export const useCharStates = () => useContext(CharStates)
