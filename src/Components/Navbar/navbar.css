@@ -1,14 +1,14 @@
-.navbar {
+.nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
     background-color: #f5f5f5;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    /* width: 100vw; */
   }
   
-  .navbar-logo {
+  .nav .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;

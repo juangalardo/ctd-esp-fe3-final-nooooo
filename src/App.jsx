@@ -13,7 +13,6 @@ function App() {
       
       <ContextProvider>
         <Navbar/>
-        <Footer/> 
       <>
         <Routes>
           <Route path='/' element={<Home/>}/>
@@ -23,6 +22,7 @@ function App() {
           <Route path='/favs' element={<Favs/>}/>
         </Routes>
         </>
+        <Footer/> 
     </ContextProvider>
   );
 }
